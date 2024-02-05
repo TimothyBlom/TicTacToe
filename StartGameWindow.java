@@ -25,9 +25,7 @@ public class StartGameWindow {
 	public static String namePlayer1 = "";
 	public static String namePlayer2 = "";
 
-	/**
-	 * Launch the application.
-	 */
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,16 +39,12 @@ public class StartGameWindow {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	//Create the application.
 	public StartGameWindow() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	//Initialise the contents of the frame.
 	private void initialize() {
 		frame = new JFrame();
 		BorderLayout borderLayout = (BorderLayout) frame.getContentPane().getLayout();
@@ -59,16 +53,14 @@ public class StartGameWindow {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblNewLabel = new JLabel("Type names");
+		//Header text
+		JLabel lblNewLabel = new JLabel("Type your names here");
 		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.SOUTH);
 		
-//bottom text
-		JLabel lblNewLabel_3 = new JLabel();
-		panel.add(lblNewLabel_3);
-		
+		//Start game button
 		JButton btnNewButton = new JButton("Start Game");
 		frame.getContentPane().add(btnNewButton, BorderLayout.CENTER);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -82,6 +74,7 @@ public class StartGameWindow {
 			}
 		});
 		
+		//Type names text input fields
 		JPanel panel_1 = new JPanel();
 		frame.getContentPane().add(panel_1, BorderLayout.WEST);
 		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.Y_AXIS));

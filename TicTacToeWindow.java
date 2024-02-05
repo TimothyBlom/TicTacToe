@@ -27,20 +27,10 @@ public class TicTacToeWindow {
 
 	private JFrame frame;
 	private String startGame = "x";
-	private String currentPlayerName = "test";
-	private int Square1 = 0;
-	private int Square2 = 0;
-	private int Square3 = 0;
-	private int Square4 = 0;
-	private int Square5 = 0;
-	private int Square6 = 0;
-	private int Square7 = 0;
-	private int Square8 = 0;
-	private int Square9 = 0;
+	private String currentPlayerName = "test name";
+	private int Square1 = 0, Square2 = 0, Square3 = 0, Square4 = 0, Square5 = 0, Square6 = 0, Square7 = 0, Square8 = 0, Square9 = 0;
 
-	/**
-	 * Launch the application.
-	 */
+	//Launch the application.
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -54,15 +44,12 @@ public class TicTacToeWindow {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	//Create the application.
 	public TicTacToeWindow() {
 		initialize();
 	}
 	
-//	StartGameWindow startGameWindow = new StartGameWindow();
-	
+	//Check who's turn is it
 	private void choosePlayer() {
 		if(startGame.equalsIgnoreCase("x")) {
 			startGame = "o";
@@ -74,11 +61,10 @@ public class TicTacToeWindow {
 		}
 	}
 	
-	//Win condition
+	//Win conditions
 	private void gameWon() {
 		if(Square1==1 && Square2==1 && Square3==1){
 			JOptionPane.showMessageDialog(frame, StartGameWindow.namePlayer1 + " has won");
-			
 		} else if (Square4==1 && Square5==1 && Square6==1) {
 			JOptionPane.showMessageDialog(frame, StartGameWindow.namePlayer1 + " has won");
 		} else if (Square7==1 && Square8==1 && Square9==1) {
@@ -115,9 +101,7 @@ public class TicTacToeWindow {
 		}
 	};
 
-	/**
-	 * Initialise the contents of the frame.
-	 */
+	//Initialise the contents of the frame.
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 400, 300);
@@ -129,6 +113,7 @@ public class TicTacToeWindow {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(4, 3, 2, 2));
 		
+		//Play field square 1
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(0, 128, 255));
 		panel.add(panel_1);
@@ -159,6 +144,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 2
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
 		panel_2.setLayout(new BorderLayout(0, 0));
@@ -187,6 +173,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 3
 		JPanel panel_3 = new JPanel();
 		panel.add(panel_3);
 		panel_3.setLayout(new BorderLayout(0, 0));
@@ -215,6 +202,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 4
 		JPanel panel_4 = new JPanel();
 		panel.add(panel_4);
 		panel_4.setLayout(new BorderLayout(0, 0));
@@ -243,6 +231,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 5
 		JPanel panel_5 = new JPanel();
 		panel.add(panel_5);
 		panel_5.setLayout(new BorderLayout(0, 0));
@@ -271,6 +260,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 6
 		JPanel panel_6 = new JPanel();
 		panel.add(panel_6);
 		panel_6.setLayout(new BorderLayout(0, 0));
@@ -299,6 +289,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 7
 		JPanel panel_7 = new JPanel();
 		panel.add(panel_7);
 		panel_7.setLayout(new BorderLayout(0, 0));
@@ -327,6 +318,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 8
 		JPanel panel_8 = new JPanel();
 		panel.add(panel_8);
 		panel_8.setLayout(new BorderLayout(0, 0));
@@ -355,6 +347,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
+		//Play field square 9
 		JPanel panel_9 = new JPanel();
 		panel.add(panel_9);
 		panel_9.setLayout(new BorderLayout(0, 0));
@@ -383,7 +376,7 @@ public class TicTacToeWindow {
 			}
 		});
 		
-		//Buttons
+		//Field with player names
 		JPanel panel_10 = new JPanel();
 		panel.add(panel_10);
 		panel_10.setLayout(new BoxLayout(panel_10, BoxLayout.Y_AXIS));
@@ -397,6 +390,8 @@ public class TicTacToeWindow {
 		JLabel Player2Name = new JLabel(StartGameWindow.namePlayer2);
 		panel_10.add(Player2Name);
 		
+		
+		//Field with player name who's turn it is  
 		JPanel panel_11 = new JPanel();
 		panel.add(panel_11);
 		panel_11.setLayout(new BoxLayout(panel_11, BoxLayout.X_AXIS));
@@ -406,12 +401,15 @@ public class TicTacToeWindow {
 		
 		JLabel playerName = new JLabel();
 		panel_11.add(playerName);
-		playerName.setText(currentPlayerName);
+		playerName.setText(currentPlayerName); //This does not correctly display the player name
 		
+		
+		//New game button
 		JPanel panel_12 = new JPanel();
 		panel.add(panel_12);
 		
 		List<JButton> buttons = Arrays.asList(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9);
+//		List<Integer> squares = Arrays.asList(Square1, Square2, Square3, Square4, Square5, Square6, Square7, Square8, Square9);
 		
 		JButton NewGameBtn = new JButton("New Game");
 		panel_12.add(NewGameBtn);
@@ -420,7 +418,11 @@ public class TicTacToeWindow {
 		        for (JButton button : buttons) {
 		            button.setText(null);
 		            button.setEnabled(true);
-		        }
+		        };
+		        //This squares list does not work correctly
+//		        for (int i = 0; i < squares.size(); i++) {
+//		            squares.set(i, 0);
+//		        };
 				Square1=0;
 				Square2=0;
 				Square3=0;
